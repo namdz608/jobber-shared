@@ -15,11 +15,11 @@
     "trailingComma": "es5"
   },
   "keywords": [],
-  "name": "namdz",
+  "name": "@namdz608/jobber-shared",
   "author": "",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/namdz608/namshop.git"
+    "url": "git+https://github.com/namdz608/jobber-shared.git"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
