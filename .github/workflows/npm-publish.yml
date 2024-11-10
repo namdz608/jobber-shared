@@ -1,0 +1,32 @@
+# This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
+# For more information see: https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages
+
+name: Node.js Package
+
+on:
+  push:
+    branchs: [master]
+
+jobs:
+  publish: 
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with: 
+          node-version: "20.x"
+      - run: cd server/jobber-shared && npm install
+      - run: npm run build
+      - run: |
+          echo @namdz608:https://npm.pkg.github.com/ > build/.npmrc
+          echo '//npm.pkg.github.com/:_authToken:${NPM_TOKEN}' >>  build/.npmrc 
+      - run: npm publish
+        working-directory: ./build
+        env: 
+          NPM_TOKEN: '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'
+
+
+
