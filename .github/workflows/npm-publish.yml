@@ -33,6 +33,7 @@ jobs:
       - run: npm run build
       - run: |
           ls -a
+          echo ${{secrets.GITHUB_TOKEN}}
           echo "@username:registry=https://npm.pkg.github.com" >> build/.npmrc
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> build/.npmrc
       - run: npm publish
